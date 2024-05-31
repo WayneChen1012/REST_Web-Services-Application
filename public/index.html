@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Market Data</title>
+</head>
+<body>
+  <h1>Stock Market Data</h1>
+  <div id="app">
+    <input type="text" id="symbol" placeholder="Enter stock symbol">
+    <button onclick="fetchStockData()">Get Data</button>
+    <canvas id="chart" width="400" height="200"></canvas>
+    <pre id="output"></pre>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
