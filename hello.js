@@ -1,4 +1,4 @@
-console.log("Hello World ~~");
+console.log("Hello World !!");
 // 定義一個函數來計算從 1 到給定數字 n 的總和
 function sumNumbers(n) {
     let sum = 0;
