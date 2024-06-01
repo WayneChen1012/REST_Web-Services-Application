@@ -3,17 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stock Market Data</title>
+  <title>台北市立圖書館座位查詢</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+    #header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background-color: #007bff;
+      color: #fff;
+    }
+    #header img {
+      margin-right: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #e9e9e9;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <h1>Stock Market Data</h1>
-  <div id="app">
-    <input type="text" id="symbol" placeholder="Enter stock symbol">
-    <button onclick="fetchStockData()">Get Data</button>
-    <canvas id="chart" width="400" height="200"></canvas>
-    <pre id="output"></pre>
+  <div id="header">
+    <img src="taipei_logo.png" alt="Taipei Logo" width="50" height="50">
+    <h1>台北市立圖書館座位查詢</h1>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div id="app">
+    <button onclick="fetchLibraryData()">獲取資料</button>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>分館名稱</th>
+          <th>樓層</th>
+          <th>區域名稱</th>
+          <th>剩餘座位</th>
+          <th>總座位數</th>
+        </tr>
+      </thead>
+      <tbody id="output">
+        <!-- Data will be inserted here -->
+      </tbody>
+    </table>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

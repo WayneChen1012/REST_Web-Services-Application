@@ -1,48 +1,31 @@
-async function fetchStockData() {
-    const symbol = document.getElementById('symbol').value;
-    const output = document.getElementById('output');
-    try {
-      const response = await fetch(`/stock/${symbol}`);
-      const data = await response.json();
+async function fetchLibraryData() {
+  const output = document.getElementById('output');
+  const apiUrl = '/api/data';
 
-      // 確認數據格式
-      if (data['Meta Data'] && data['Time Series (1min)']) {
-        output.textContent = JSON.stringify(data, null, 2);
-
-        // 提取並處理數據
-        const timeSeries = data['Time Series (1min)'];
-        const labels = Object.keys(timeSeries).reverse();
-        const prices = labels.map(label => parseFloat(timeSeries[label]['4. close']));
-
-        // 繪製圖表
-        const ctx = document.getElementById('chart').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: `${symbol} Stock Price`,
-              data: prices,
-              borderColor: 'rgba(75, 192, 192, 1)',
-              fill: false
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              x: {
-                type: 'time',
-                time: {
-                  unit: 'minute'
-                }
-              }
-            }
-          }
-        });
-      } else {
-        output.textContent = 'No data available for this symbol.';
+  try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
       }
-    } catch (error) {
-      output.textContent = 'Failed to fetch data';
-    }
+      const data = await response.json();
+      displayData(data);
+  } catch (error) {
+      output.innerHTML = '<tr><td colspan="5">Failed to fetch data: ' + error.message + '</td></tr>';
   }
+}
+
+function displayData(data) {
+  const output = document.getElementById('output');
+  output.innerHTML = '';
+  data.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+          <td>${item.branchName}</td>
+          <td>${item.floorName}</td>
+          <td>${item.areaName}</td>
+          <td>${item.freeCount}</td>
+          <td>${item.totalCount}</td>
+      `;
+      output.appendChild(row);
+  });
+}
