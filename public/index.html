@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>台北市立圖書館座位查詢</title>
+  <title>警廣即時路況查詢</title>
   <style>
     body {
       font-family: Arial, sans-serif; /* 設定全局字體 */
@@ -17,11 +17,9 @@
       background-color: #007bff; /* 設定標題區域背景顏色為藍色 */
       color: #fff; /* 設定標題字體顏色為白色 */
     }
-    #header img {
-      margin-right: 10px; /* 設定圖片右邊距 */
-    }
     #header h1 {
       font-family: 'DFKai-SB', '標楷體', sans-serif; /* 設定標題字體為標楷體 */
+      margin: 0; /* 去除標題的默認外邊距 */
     }
     #app {
       background-color: #ffffff; /* 設定表格數據區域背景顏色為白色 */
@@ -58,23 +56,26 @@
     button:hover {
       background-color: #0056b3; /* 設定按鈕懸停背景顏色為深藍色 */
     }
+    /* 調整區域名稱列的寬度 */
+    .area-column {
+      width: 20%; /* 設定區域名稱列的寬度 */
+    }
   </style>
 </head>
 <body>
   <div id="header">
-    <img src="taipei_logo.png" alt="Taipei Logo" width="50" height="50"> <!-- 引用台北Logo圖片並設定尺寸 -->
-    <h1>台北市立圖書館座位查詢</h1> <!-- 頁面標題 -->
+    <h1>警廣即時路況查詢</h1> <!-- 頁面標題 -->
   </div>
   <div id="app">
-    <button onclick="fetchLibraryData()">獲取資料</button> <!-- 點擊按鈕觸發fetchLibraryData函數 -->
+    <button onclick="fetchTrafficData()">獲取資料</button> <!-- 點擊按鈕觸發fetchTrafficData函數 -->
     <table id="dataTable">
       <thead>
         <tr>
-          <th>分館名稱</th>
-          <th>樓層</th>
-          <th>區域名稱</th>
-          <th>剩餘座位</th>
-          <th>總座位數</th>
+          <th>路況區域</th>
+          <th class="area-column">區域名稱</th>
+          <th>道路名稱</th>
+          <th>發生時間</th>
+          <th>路況說明</th>
         </tr>
       </thead>
       <tbody id="output">

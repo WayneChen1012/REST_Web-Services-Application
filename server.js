@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-const apiUrl = 'https://seat.tpml.edu.tw/sm/service/getAllArea';
+const apiUrl = 'https://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=36384FA8-FACF-432E-BB5B-5F015E7BC1BE'; // 警廣即時路況數據下載鏈接
 
 // 設置靜態文件夾
 app.use(express.static(path.join(__dirname, 'public')));
