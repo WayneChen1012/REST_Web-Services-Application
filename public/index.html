@@ -6,60 +6,60 @@
   <title>台北市立圖書館座位查詢</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
+      font-family: Arial, sans-serif; /* 設定全局字體 */
+      background-color: #f8f8f8; /* 設定整體背景顏色為淡灰色 */
+      color: #333; /* 設定全局字體顏色為深灰色 */
     }
     #header {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      background-color: #007bff;
-      color: #fff;
+      display: flex; /* 使用flexbox佈局 */
+      align-items: center; /* 垂直居中對齊 */
+      padding: 20px; /* 設定內邊距 */
+      background-color: #007bff; /* 設定標題區域背景顏色為藍色 */
+      color: #fff; /* 設定標題字體顏色為白色 */
     }
     #header img {
-      margin-right: 10px;
+      margin-right: 10px; /* 設定圖片右邊距 */
     }
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
+      width: 100%; /* 設定表格寬度為100% */
+      border-collapse: collapse; /* 合併表格邊框 */
+      margin-top: 20px; /* 設定表格頂部邊距 */
     }
     th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
+      border: 1px solid #ddd; /* 設定表格單元格邊框顏色 */
+      padding: 8px; /* 設定表格單元格內邊距 */
+      text-align: left; /* 設定表格單元格文本左對齊 */
     }
     th {
-      background-color: #007bff;
-      color: #fff;
+      background-color: #007bff; /* 設定表格表頭背景顏色為藍色 */
+      color: #fff; /* 設定表格表頭字體顏色為白色 */
     }
     tr:nth-child(even) {
-      background-color: #f2f2f2;
+      background-color: #f2f2f2; /* 設定偶數行背景顏色為淡灰色 */
     }
     tr:hover {
-      background-color: #e9e9e9;
+      background-color: #e9e9e9; /* 設定行懸停背景顏色為更深的灰色 */
     }
     button {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      margin-top: 20px;
+      background-color: #007bff; /* 設定按鈕背景顏色為藍色 */
+      color: white; /* 設定按鈕字體顏色為白色 */
+      padding: 10px 20px; /* 設定按鈕內邊距 */
+      border: none; /* 去除按鈕邊框 */
+      cursor: pointer; /* 設定鼠標樣式為手型 */
+      margin-top: 20px; /* 設定按鈕頂部邊距 */
     }
     button:hover {
-      background-color: #0056b3;
+      background-color: #0056b3; /* 設定按鈕懸停背景顏色為深藍色 */
     }
   </style>
 </head>
 <body>
   <div id="header">
-    <img src="taipei_logo.png" alt="Taipei Logo" width="50" height="50">
-    <h1>台北市立圖書館座位查詢</h1>
+    <img src="taipei_logo.png" alt="Taipei Logo" width="50" height="50"> <!-- 引用台北Logo圖片並設定尺寸 -->
+    <h1>台北市立圖書館座位查詢</h1> <!-- 頁面標題 -->
   </div>
   <div id="app">
-    <button onclick="fetchLibraryData()">獲取資料</button>
+    <button onclick="fetchLibraryData()">獲取資料</button> <!-- 點擊按鈕觸發fetchLibraryData函數 -->
     <table id="dataTable">
       <thead>
         <tr>
@@ -71,10 +71,10 @@
         </tr>
       </thead>
       <tbody id="output">
-        <!-- Data will be inserted here -->
+        <!-- 此處將插入數據 -->
       </tbody>
     </table>
   </div>
-  <script src="app.js"></script>
+  <script src="app.js"></script> <!-- 引用外部JavaScript文件 -->
 </body>
 </html>
